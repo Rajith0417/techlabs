@@ -36,3 +36,25 @@
 //     transform: rotate(360deg);
 //   }
 // }
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.button-display {
+  bottom: 15px;
+  right: 15px;
+  background: #f54a6f;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}

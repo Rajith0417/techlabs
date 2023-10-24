@@ -1,8 +1,16 @@
-// import React from 'react';
+import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.scss';
+import CustomButton from './components/CustomButton';
 
 function App() {
+
+  const [isAllFavorite, setIsAllFavorite] = useState(false)
+
+  function showAllFavorite(): void {
+    setIsAllFavorite(!isAllFavorite);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +26,12 @@ function App() {
         >
           Learn React
         </a> */}
+        <CustomButton
+          className="button-display"
+          title={isAllFavorite ? "Display Favorite" : "Display All"}
+          buttonType="button"
+          handleClick={() => showAllFavorite()}
+        />
       </header>
       <section>
 
