@@ -55,7 +55,7 @@ function CharacterList({
     <>
       {characters.map((character, index) => (
         <CharacterCard
-          key={character.name}
+          key={character.id}
           character={character}
           episodes={episodes}
           isFavorite={favoriteCharacterIds.includes(character.id)}
