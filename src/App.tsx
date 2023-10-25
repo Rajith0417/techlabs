@@ -36,6 +36,7 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageCount]);
 
   const api = async (count: number) => {
