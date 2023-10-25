@@ -31,7 +31,7 @@ export interface Episode {
   // episode: string
   // characters: string[]
   // url: string
-  created: string;
+//   created: string;
 }
 
 export interface Origin {
@@ -51,6 +51,6 @@ export interface CharacterCardProps {
 
 export interface CharacterListProps {
   characters: Character[];
-  favoriteCharacters: Character[];
-  onToggleFavorite: (character: Character) => void;
+  onToggleFavorite: (characterId: number) => void;
+  favoriteCharacterIds: number[];
 }

@@ -4,8 +4,8 @@ import CharacterCard from "./CharacterCard";
 
 function CharacterList({
   characters,
-  favoriteCharacters,
   onToggleFavorite,
+  favoriteCharacterIds,
 }: CharacterListProps) {
   const [expandedCharacterIndex, setExpandedCharacterIndex] =
     useState<number>(-1);
@@ -14,8 +14,6 @@ function CharacterList({
 
   const toggleExpand = (index: number) => {
     setExpandedCharacterIndex(expandedCharacterIndex === index ? -1 : index);
-    // console.log("---" + index);
-    // console.log(characters);
     fetchAllEpisodes(index);
   };
 
@@ -34,7 +32,6 @@ function CharacterList({
       .slice(selectedEpisodes.length - Math.min(3, selectedEpisodes.length)) //get latest 3 episodes
       .map(async (episodeUrl) => {
         try {
-          console.log(episodeUrl);
           return await fetchEpisode(episodeUrl);
         } catch (error) {
           console.error("Error fetching episode data:", error);
@@ -50,7 +47,7 @@ function CharacterList({
       // Handle any errors that occurred during the fetch process
       console.error("Error fetching episode data:", error);
     } finally {
-        setEpisodesLoading(false);
+      setEpisodesLoading(false);
     }
   };
 
@@ -61,11 +58,11 @@ function CharacterList({
           key={character.name}
           character={character}
           episodes={episodes}
-          isFavorite={favoriteCharacters.includes(character)}
-          onToggleFavorite={() => onToggleFavorite(character)}
+          isFavorite={favoriteCharacterIds.includes(character.id)}
+          onToggleFavorite={() => onToggleFavorite(character.id)}
           onExpand={() => toggleExpand(index)}
           isExpanded={expandedCharacterIndex === index}
-          isEpisodesLoading = {episodesLoading}
+          isEpisodesLoading={episodesLoading}
         />
       ))}
     </>

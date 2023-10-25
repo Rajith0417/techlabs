@@ -26,9 +26,6 @@ function CharacterCard({
           <p>Gender: {character.gender}</p>
           {/* <p>Origin: {character.origin}</p> */}
           <p>Status: {character.status}</p>
-          <button onClick={onToggleFavorite}>
-            {isFavorite ? 'Unfavorite' : 'Favorite'}
-          </button>
           <CustomButton
             className="character__favorite-button"
             handleClick={() => onToggleFavorite()}
