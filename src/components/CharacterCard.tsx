@@ -24,7 +24,7 @@ function CharacterCard({
           <h2>{character.name}</h2>
           <p>Species: {character.species}</p>
           <p>Gender: {character.gender}</p>
-          {/* <p>Origin: {character.origin}</p> */}
+          <p>Origin: {character.origin?.name}</p>
           <p>Status: {character.status}</p>
           <CustomButton
             className="character__favorite-button"

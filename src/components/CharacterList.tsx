@@ -16,7 +16,7 @@ function CharacterList({
     setExpandedCharacterIndex(expandedCharacterIndex === index ? -1 : index);
     fetchAllEpisodes(index);
   };
-
+  //fetch single episodes
   const fetchEpisode = async (episodeUrl: string) => {
     const response = await fetch(episodeUrl);
     if (!response.ok) {
@@ -24,7 +24,7 @@ function CharacterList({
     }
     return response.json();
   };
-
+  //fetch all episodes
   const fetchAllEpisodes = async (id: number) => {
     setEpisodesLoading(true);
     const selectedEpisodes = characters[id].episode;
@@ -35,7 +35,7 @@ function CharacterList({
           return await fetchEpisode(episodeUrl);
         } catch (error) {
           console.error("Error fetching episode data:", error);
-          return null; // Handle the error by returning null or another default value
+          return null;
         }
       });
 
