@@ -36,11 +36,6 @@
 //     transform: rotate(360deg);
 //   }
 // }
-.App-header {
-  padding: 10px 15px;
-  text-align: right;
-}
-
 button {
   background: none;
   color: inherit;
@@ -50,10 +45,21 @@ button {
   cursor: pointer;
   outline: inherit;
 }
+h2, h3 {
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.App-header {
+  padding: 10px 15px;
+  text-align: right;
+}
 
 .loading {
   display: flex;
-  font-size: 200px;
+  font-size: 20vw;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -82,28 +88,31 @@ button {
 }
 
 .character {
-  width: 500px;
-  height: 200px;
+  width: 250px;
+  height: auto;
   border: solid 1px lightgray;
   border-radius: 10px;
   overflow: hidden;
   background: white;
   box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+  transition: 1s;
   &:hover {
     img {
       transform: scale(1.1);
-      transition: 1s;
+      transition: .5s;
     }
   }
   &--expand {
-    margin: -50px 0;
+    margin: 0 0 -150px;
+    position: relative;
     height: auto;
+    border: solid 1px #f54a6f;
     z-index: 1;
     // background: lightsalmon;
-    transition: 1s;
+    transition: .5s;
   }
   &__image {
-    width: 200px;
+    width: 100%;
     margin: 0;
     overflow: hidden;
     img {
@@ -112,13 +121,14 @@ button {
       transition: 1s;
     }
   }
+  &__top {
+    display: flex;
+    flex-direction: column;
+  }
   &__right {
     padding: 15px;
     flex: 1;
     position: relative;
-  }
-  &__top {
-    display: flex;
   }
   &__favorite-button {
     position: absolute;
@@ -146,10 +156,35 @@ button {
   &__loading {
     display: flex;
     padding: 0 0 20px;
-    font-size: 24px;
+    font-size: 26px;
     justify-content: center;
     align-items: center;
     width: 100%;
     color: lightcoral;
+  }
+}
+
+@media only screen and (min-width: 540px)  {
+  .character {
+    width: 500px;
+    height: 200px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+    transition: 1s;
+    &__top {
+      flex-direction: row;
+    }
+    &__right {
+      width: 270px;
+    }
+    &__image {
+      width: 200px;
+    }
+    &--expand {
+      height: 350px;
+    }
   }
 }
