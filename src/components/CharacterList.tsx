@@ -41,7 +41,6 @@ function CharacterList({
 
     try {
       const episodeDataArray = await Promise.all(episodePromises);
-      console.log("Episode Details:", episodeDataArray);
       setEpisodes(episodeDataArray);
     } catch (error) {
       // Handle any errors that occurred during the fetch process

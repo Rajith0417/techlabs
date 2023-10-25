@@ -41,7 +41,6 @@ function App() {
 
   const api = async (count: number) => {
     try {
-      console.log("api---");
       //page is loading
       setLoading(true);
       const data = await fetch(
