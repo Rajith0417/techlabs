@@ -1,14 +1,14 @@
 import { MouseEventHandler } from "react";
 
 export interface ButtonProps {
-    title?: string;
-    buttonType: "submit" | "button";
-    handleClick: MouseEventHandler<HTMLButtonElement>;
-    className: string;
-    isFavorite?: boolean;
-    isDisable?: boolean;
-  }
-  
+  title?: string;
+  buttonType: "submit" | "button";
+  handleClick: MouseEventHandler<HTMLButtonElement>;
+  className: string;
+  isFavorite?: boolean;
+  isDisable?: boolean;
+}
+
 export interface Character {
   id: number;
   image: string;
@@ -40,6 +40,17 @@ export interface Origin {
 }
 
 export interface CharacterCardProps {
-    characters: Character[];
-    
+  character: Character;
+  episodes: Episode[];
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
+  onExpand: () => void;
+  isExpanded: boolean;
+  isEpisodesLoading: boolean;
+}
+
+export interface CharacterListProps {
+  characters: Character[];
+  favoriteCharacters: Character[];
+  onToggleFavorite: (character: Character) => void;
 }
